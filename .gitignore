@@ -130,3 +130,4 @@ dmypy.json
 
 # airflow pid
 *.pid
+standalone_admin_password.txt
