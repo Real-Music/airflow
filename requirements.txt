@@ -1,0 +1,7 @@
+apache-airflow==2.2.2
+mysqlclient==2.0.3
+alembic==1.7.1
+celery==5.2.1
+redis==4.0.2
+mysqlclient==2.1.0
+pydantic==1.8.2
