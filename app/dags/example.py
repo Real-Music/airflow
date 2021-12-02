@@ -26,34 +26,38 @@ def fetch_users():
     _companies: list = []
 
     for user in data:
-        userObject: dict = {
-            "name": user.get("name"),
-            "username": user.get("username"),
-            "email": user.get("email"),
-        }
-        new_user: UserDTO = Users.create(user=userObject)
-        _users.append(new_user)
+        try:
+            userObject: dict = {
+                "name": user.get("name"),
+                "username": user.get("username"),
+                "email": user.get("email"),
+                "phone": user.get("phone"),
+            }
+            new_user: UserDTO = Users.create(user=userObject)
+            _users.append(new_user)
 
-        address: dict = user.get("address")
-        addressObject: dict = {
-            "user_id": new_user.id,
-            "street": address.get("street"),
-            "suite": address.get("suite"),
-            "city": address.get("city"),
-            "zipcode": address.get("zipcode"),
-        }
-        new_address: AddressDTO = Address.create(address=addressObject)
-        _address.append(new_address)
+            address: dict = user.get("address")
+            addressObject: dict = {
+                "user_id": new_user.id,
+                "street": address.get("street"),
+                "suite": address.get("suite"),
+                "city": address.get("city"),
+                "zipcode": address.get("zipcode"),
+            }
+            new_address: AddressDTO = Address.create(address=addressObject)
+            _address.append(new_address)
 
-        company: dict = user.get("company")
-        companyObject: dict = {
-            "user_id": new_user.id,
-            "name": company.get("name"),
-            "catchPhrase": company.get("catchPhrase"),
-            "bs": company.get("bs"),
-        }
-        new_company: CompanyDTO = Company.create(company=companyObject)
-        _companies.append(new_company)
+            company: dict = user.get("company")
+            companyObject: dict = {
+                "user_id": new_user.id,
+                "name": company.get("name"),
+                "catchPhrase": company.get("catchPhrase"),
+                "bs": company.get("bs"),
+            }
+            new_company: CompanyDTO = Company.create(company=companyObject)
+            _companies.append(new_company)
+        except Exception:
+            pass
 
     print_to_console("Done Fetching")
     print_to_console(

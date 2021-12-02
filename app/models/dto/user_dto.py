@@ -11,6 +11,7 @@ class UserDTO(BaseModel):
     name: Optional[str]
     username: Optional[str]
     email: Optional[str]
+    phone: Optional[str]
 
     address: Optional[List[AddressDTO]]
     company: Optional[List[CompanyDTO]]

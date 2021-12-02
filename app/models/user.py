@@ -14,6 +14,7 @@ class Users(Base_Model):
     name = Column(String(50), nullable=False)
     username = Column(String(70), unique=True, nullable=False)
     email = Column(String(100), unique=True, nullable=False)
+    phone = Column(String(100), unique=True, nullable=True)
 
     created_on = Column(DateTime, default=datetime.utcnow())
     updated_on = Column(DateTime, onupdate=datetime.utcnow())
